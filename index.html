@@ -3,11 +3,143 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitHub</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Kirsty's Weather App</title>
+
+    <script
+      src="https://kit.fontawesome.com/7547b11f41.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Play&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <h1>GitHub Rules</h1>
+    <div class="main-container">
+      <form id="city-form">
+        <input type="text" placeholder="Enter location" id="city-input" />
+        <button type="button" class="btn btn-secondary" id="btn-1">
+          Search
+        </button>
+        <button type="button" class="btn btn-secondary" id="btn-2">
+          use current location
+        </button>
+      </form>
+      <div class="weather-container">
+        <div class="row">
+          <div class="col-4">
+            <h1 id="time-day">it is</h1>
+          </div>
+
+          <div class="col-4">
+            <h1 id="display-city">Liverpool</h1>
+          </div>
+
+          <div class="col-4">
+            <h1 span id="temp-number">
+              1°C </span>
+              <span id="weather-cond">Snow</span>
+              <i class="far fa-snowflake"></i>
+            </h1>
+          </div>
+        </div>
+        <div class="conditions-container">
+          <div class="row">
+            <div class="col-4">
+              <h3>Wind Speed 10mph<i class="fas fa-wind"></i></h3>
+              <h3>Humidity 70%<i class="fas fa-tint"></i></h3>
+            </div>
+
+            <div class="col-4">
+              <h3>Sunrise 6:38am<i class="fas fa-sun"></i></h3>
+              <h3>Sunset 4:23pm<i class="fas fa-moon"></i></h3>
+            </div>
+
+            <div class="col-4">
+              <h3>Max Temp 1°<i class="fas fa-temperature-high"></i></h3>
+              <h3>Min Temp -1°<i class="fas fa-temperature-low"></i></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast-container">
+        <h2>Forecast</h2>
+        <div class="row">
+          <div class="col-2">
+            <div class="card">
+              <i class="fas fa-ellipsis-h"></i>
+              <div class="card-body">
+                <h5 class="card-title">Next 5 Days</h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="card">
+              <i class="fas fa-wind"></i>
+              <div class="card-body">
+                <h5 class="card-title">Mon</h5>
+                <p class="card-text">Windy</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="card">
+              <i class="fas fa-bolt"></i>
+              <div class="card-body">
+                <h5 class="card-title">Tue</h5>
+                <p class="card-text">Thunder</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="card">
+              <i class="fas fa-sun"></i>
+              <div class="card-body">
+                <h5 class="card-title">Wed</h5>
+                <p class="card-text">Sun</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="card">
+              <i class="fas fa-cloud-rain"></i>
+              <div class="card-body">
+                <h5 class="card-title">Thurs</h5>
+                <p class="card-text">Showers</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="card">
+              <i class="fas fa-cloud"></i>
+              <div class="card-body">
+                <h5 class="card-title">Fri</h5>
+                <p class="card-text">Cloud</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="src/script.js"></script>
   </body>
 </html>
