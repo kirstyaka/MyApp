@@ -15,20 +15,24 @@ time.innerHTML = `${day} ${hour}:${minutes}`;
 function displayWeather(response) {
   document.querySelector("#display-city").innerHTML = response.data.name;
 
-  let temp = Math.round(response.data.main.temp);
-  console.log(response.data);
-  let tempElement = document.querySelector("#temp-number");
-  tempElement.innerHTML = `${temp}°C`
+ 
+
+  let conditions = response.data.weather[0].description;
+  console.log(conditions);
+  let conditionsElement = document.querySelector("#temp-number");
+  conditionsElement.innerHTML = `${conditions}`
+
 
   
-  let conditions = response.data.weather[0].description;
-  let condElement = document.querySelector("#weather-cond");
-  condElement.innerHTML = `${conditions}`
+
 
   let windSpeed = response.data.wind.speed;
   console.log(windSpeed);
   windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = `${windSpeed}`
+
+
+
 
 }
 
