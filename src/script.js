@@ -21,11 +21,11 @@ function displayWeather(response) {
   tempElement.innerHTML = `${temp}°C`
 
   
-  let conditions = response.data.weather[0];
+  let conditions = response.data.weather[0].description;
   let condElement = document.querySelector("#weather-cond");
   condElement.innerHTML = `${conditions}`
 
-  let windSpeed = response.data.wind.speed
+  let windSpeed = response.data.wind.speed;
   console.log(windSpeed);
   windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = `${windSpeed}`
@@ -54,7 +54,6 @@ let currentButton = document.querySelector("#btn-2");
 currentButton.addEventListener("click", getPosition);
 
 function currentPosition(position) {
-  console.log(position);
 
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
