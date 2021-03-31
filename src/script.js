@@ -19,17 +19,11 @@ function displayWeather(response) {
   console.log(response.data);
   let tempElement = document.querySelector("#temp-number");
   tempElement.innerHTML = `${temp}°C`
-
   
   let conditions = response.data.weather[0];
+  console.log(conditions);
   let condElement = document.querySelector("#weather-cond");
   condElement.innerHTML = `${conditions}`
-
-  let windSpeed = response.data.wind.speed
-  console.log(windSpeed);
-  windElement = document.querySelector("#wind-speed");
-  windElement.innerHTML = `${windSpeed}`
-
 }
 
 function city(event) {
