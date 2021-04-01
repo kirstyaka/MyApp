@@ -61,7 +61,6 @@ function displayWeather(response) {
   windElement.innerHTML = `${windSpeed}`
 
   let humidity = response.data.main.humidity;
-  console.log(humidity);
   humidElement = document.querySelector("#humidity");
   humidElement.innerHTML = `${humidity}`
 
@@ -72,6 +71,8 @@ function displayWeather(response) {
   let maxTemp = Math.round(response.data.main.temp_max);
   let maxTempElement = document.querySelector("#max-temp");
   maxTempElement.innerHTML = `${maxTemp}`
+
+  celciusTemperature = response.data.main.temp;
 }
 
 function city(event) {
@@ -105,12 +106,27 @@ function currentPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-//function celciusTemp(event) {
-  //let temperature = document.querySelector("#temp-number");
-  
+function showFahrenheit(event){
+  event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celciusLink.classList.remove("active");
+ let fahrenheitTemp = (celciusTemperature * 9) / 5 +32;
+ let tempElement = document.querySelector("#temp-number");
+ tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
 
-  //alert(`your secret password is: ${passwordInput.value}`);
-//}
+let fahrenheitLink = document.querySelector("#fahrenheit"); 
+fahrenheitLink.addEventListener("click", showFahrenheit);
 
-//let passwordForm = document.querySelector("#password-form");
-//passwordForm.addEventListener("click", celcius);
+function showCelcius(event){
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempElement = document.querySelector("#temp-number");
+  tempElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", showCelcius);
+
+let celciusTemperature = null;

@@ -71,3 +71,13 @@ form {
 .btn-secondary {
   background-color: #35495e;
 }
+
+.col-4 .active {
+  text-decoration: none;
+  color: #35495e;
+  cursor: default;
+}
+
+.col-4 .active:hover {
+  text-decoration: none;
+}
