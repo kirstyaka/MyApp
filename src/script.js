@@ -23,34 +23,21 @@ function formatDate() {
   let currentDate = now.getDate();
   let currentYear = now.getFullYear();
   let currentHour = now.getHours();
-  let currentMinutes = now.getMinutes();
+    if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
 
- 
+  }
+  let currentMinutes = now.getMinutes();
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
+  
   let currentTime = document.querySelector("#time-day");
   currentTime.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${currentHour}:${currentMinutes}`;
   
 return currentTime;
 }
 formatDate();
-
-
-//let now = new Date();
-
-//let time = document.querySelector("#time-day");
-
-//let hour = now.getHours();
-//let minutes = now.getMinutes();
-//let date = now.getDate();
-
-//let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//let day = days[now.getDay()];
-
-//let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-//let month = months[now.getMonth()];
-
-//time.innerHTML = `${day} ${date} ${month} ${hour}:${minutes}`;
-
-
 
 
 function displayWeather(response) {
@@ -61,6 +48,10 @@ function displayWeather(response) {
   let tempElement = document.querySelector("#temp-number");
   tempElement.innerHTML = `${temp}`
 
+  let currentWeather = response.data.weather[0].icon;
+  let currentWeatherElement = document.querySelector("#current-weather");
+  currentWeatherElement.setAttribute("src", `http://openweathermap.org/img/wn/${currentWeather}@2x.png`);
+
   let conditions = response.data.weather[0].description;
   let conditionsElement = document.querySelector("#condition");
   conditionsElement.innerHTML = `${conditions}`
@@ -69,7 +60,7 @@ function displayWeather(response) {
   windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = `${windSpeed}`
 
- let humidity = response.data.main.humidity;
+  let humidity = response.data.main.humidity;
   console.log(humidity);
   humidElement = document.querySelector("#humidity");
   humidElement.innerHTML = `${humidity}`
