@@ -15,25 +15,31 @@ time.innerHTML = `${day} ${hour}:${minutes}`;
 function displayWeather(response) {
   document.querySelector("#display-city").innerHTML = response.data.name;
 
- 
+  let temp = Math.round(response.data.main.temp);
+  console.log(response.data);
+  let tempElement = document.querySelector("#temp-number");
+  tempElement.innerHTML = `${temp}`
 
   let conditions = response.data.weather[0].description;
-  console.log(conditions);
-  let conditionsElement = document.querySelector("#temp-number");
+  let conditionsElement = document.querySelector("#condition");
   conditionsElement.innerHTML = `${conditions}`
 
-
-  
-
-
-  let windSpeed = response.data.wind.speed;
-  console.log(windSpeed);
+  let windSpeed = Math.round(response.data.wind.speed);
   windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = `${windSpeed}`
 
+ let humidity = response.data.main.humidity;
+  console.log(humidity);
+  humidElement = document.querySelector("#humidity");
+  humidElement.innerHTML = `${humidity}`
 
+  let minTemp = Math.round(response.data.main.temp_min);
+  let minTempElement = document.querySelector("#min-temp");
+  minTempElement.innerHTML = `${minTemp}`
 
-
+  let maxTemp = Math.round(response.data.main.temp_max);
+  let maxTempElement = document.querySelector("#max-temp");
+  maxTempElement.innerHTML = `${maxTemp}`
 }
 
 function city(event) {
