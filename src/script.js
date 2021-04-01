@@ -1,15 +1,56 @@
 
-let now = new Date();
+function formatDate() {
+  let now = new Date();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let currentDay = days[now.getDay()];
 
-let time = document.querySelector("#time-day");
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
 
-let hour = now.getHours();
-let minutes = now.getMinutes();
+  let currentMonth = months[now.getMonth()];
+  let currentDate = now.getDate();
+  let currentYear = now.getFullYear();
+  let currentHour = now.getHours();
+  let currentMinutes = now.getMinutes();
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
+ 
+  let currentTime = document.querySelector("#time-day");
+  currentTime.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${currentHour}:${currentMinutes}`;
+  
+return currentTime;
+}
+formatDate();
 
-time.innerHTML = `${day} ${hour}:${minutes}`;
+
+//let now = new Date();
+
+//let time = document.querySelector("#time-day");
+
+//let hour = now.getHours();
+//let minutes = now.getMinutes();
+//let date = now.getDate();
+
+//let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//let day = days[now.getDay()];
+
+//let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+//let month = months[now.getMonth()];
+
+//time.innerHTML = `${day} ${date} ${month} ${hour}:${minutes}`;
+
+
 
 
 function displayWeather(response) {
