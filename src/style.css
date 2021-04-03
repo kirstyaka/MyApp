@@ -59,6 +59,15 @@ form {
 .forecast-container {
   display: block;
   margin-top: 50px;
+  text-align: center;
+}
+
+.forecast-day {
+  margin-top: 20px;
+}
+
+.forecast-min {
+  opacity: 0.7;
 }
 
 .fas {
@@ -79,4 +88,8 @@ form {
 
 .col-4 .active:hover {
   text-decoration: none;
+}
+
+.open-source {
+  margin-left: 20px;
 }

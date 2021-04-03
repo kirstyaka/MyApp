@@ -47,14 +47,11 @@
             <h1 id="display-city">Liverpool</h1>
           </div>
 
-          <div class="col-4">
+          <div class="col-4" id="temp-units">
             <h1>
               <span id="temp-number">1</span>
-              <a href="#" id="celcius" class="active">°C</a>|<a
-                href="#"
-                id="fahrenheit"
-                >°F</a
-              >
+              <a href="#" id="celcius" class="active">°C</a>|
+              <a href="#" id="fahrenheit">°F</a>
 
               <span id="condition">Cloud</span>
 
@@ -103,77 +100,35 @@
         </div>
       </div>
 
-      <div class="forecast-container">
-        <h2>Forecast</h2>
+      <div class="forecast-container" id="forecast">
         <div class="row">
           <div class="col-2">
-            <div class="card">
-              <i class="fas fa-ellipsis-h"></i>
-              <div class="card-body">
-                <h5 class="card-title">Next 5 Days</h5>
-                <p class="card-text"></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="card">
-              <img src="https://openweathermap.org/img/wn/50d@2x.png" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Mon</h5>
-                <p class="card-text">Windy</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="card">
-              <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Tue</h5>
-                <p class="card-text">Thunder</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="card">
-              <img src="https://openweathermap.org/img/wn/02n@2x.png" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Wed</h5>
-                <p class="card-text">Sun</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="card">
-              <img src="https://openweathermap.org/img/wn/11n@2x.png" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Thurs</h5>
-                <p class="card-text">Showers</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="card">
-              <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Fri</h5>
-                <p class="card-text">Cloud</p>
+            <div class="forecast-day">
+              <h5>Mon</h5>
+              <img
+                src="https://openweathermap.org/img/wn/50d@2x.png"
+                id="forecast-icon"
+                alt=""
+              />
+              <div class="forecast temps">
+                <span class="forecast-min">8°C</span>
+                <span class="forecast-max">12°C</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <small>
-        <a href="https://github.com/kirstyaka/MyApp" target="_blank"
-          >Open-source code</a
-        >
-        , by Kirsty Akahoho
-      </small>
     </div>
+    <small>
+      <a
+        href="https://github.com/kirstyaka/MyApp"
+        id="open-source"
+        target="_blank"
+        >Open-source code</a
+      >
+      , by Kirsty Akahoho
+    </small>
+
     <script src="src/script.js"></script>
   </body>
 </html>
