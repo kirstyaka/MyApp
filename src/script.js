@@ -40,6 +40,39 @@ return currentTime;
 formatDate();
 
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastDisplay = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function(day){
+
+ forecastDisplay = forecastDisplay + 
+  `    
+          <div class="col-2">
+            <div class="forecast-day">
+              <h5>${day}</h5>
+              <img
+                src="https://openweathermap.org/img/wn/50d@2x.png"
+                id="forecast-icon"
+                alt=""
+              />
+              <div class="forecast temps">
+                <span class="forecast-min">8°C</span>
+                <span class="forecast-max">12°C</span>
+              </div>
+            </div>
+      </div>`;
+
+  })
+  
+ 
+
+
+
+forecastDisplay = forecastDisplay + `</div>`;
+forecastElement.innerHTML = forecastDisplay;
+}
+
 function displayWeather(response) {
   document.querySelector("#display-city").innerHTML = response.data.name;
 
@@ -130,3 +163,5 @@ let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", showCelcius);
 
 let celciusTemperature = null;
+
+displayForecast();
