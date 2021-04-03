@@ -40,7 +40,8 @@ return currentTime;
 formatDate();
 
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastDisplay = `<div class="row">`;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
@@ -65,19 +66,20 @@ function displayForecast() {
 
   })
   
- 
-
-
-
 forecastDisplay = forecastDisplay + `</div>`;
 forecastElement.innerHTML = forecastDisplay;
+}
+
+function getForecast(coordinates) {
+let apiKey = "010a91f8ea00ef6449ae49dee5b2b4ae";
+let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeather(response) {
   document.querySelector("#display-city").innerHTML = response.data.name;
 
   let temp = Math.round(response.data.main.temp);
-  console.log(response.data);
   let tempElement = document.querySelector("#temp-number");
   tempElement.innerHTML = `${temp}`
 
@@ -106,6 +108,8 @@ function displayWeather(response) {
   maxTempElement.innerHTML = `${maxTemp}`
 
   celciusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function city(event) {
@@ -120,7 +124,6 @@ function city(event) {
 
 let cityForm = document.querySelector("#btn-1");
 cityForm.addEventListener("click", city);
-
 
 function getPosition(position) {
 navigator.geolocation.getCurrentPosition(currentPosition);
@@ -163,5 +166,3 @@ let celciusLink = document.querySelector("#celcius");
 celciusLink.addEventListener("click", showCelcius);
 
 let celciusTemperature = null;
-
-displayForecast();
