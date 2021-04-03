@@ -39,32 +39,38 @@ return currentTime;
 }
 formatDate();
 
+function formatDay(timestamp) {
+let date = new Date(timestamp * 1000);
+let day = date.getDay();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+return days[day]; 
+}
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastDisplay = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function(day){
-
+  forecast.forEach(function(forecastDay, index){
+if (index < 6) {
  forecastDisplay = forecastDisplay + 
   `    
           <div class="col-2">
             <div class="forecast-day">
-              <h5>${day}</h5>
+              <h5>${formatDay(forecastDay.dt)}</h5>
               <img
-                src="https://openweathermap.org/img/wn/50d@2x.png"
+                src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                 id="forecast-icon"
                 alt=""
               />
               <div class="forecast temps">
-                <span class="forecast-min">8°C</span>
-                <span class="forecast-max">12°C</span>
+                <span class="forecast-min">${Math.round(forecastDay.temp.min)}°C</span>
+                <span class="forecast-max">${Math.round(forecastDay.temp.max)}°C</span>
               </div>
             </div>
       </div>`;
-
-  })
+}
+})
   
 forecastDisplay = forecastDisplay + `</div>`;
 forecastElement.innerHTML = forecastDisplay;
