@@ -39,70 +39,54 @@
       </form>
       <div class="weather-container">
         <div class="row">
-          <div class="col-4">
-            <h1 id="time-day"></h1>
+          <div class="col-6">
+            <h1 id="display-city">Liverpool
+            <h3 id="time-day"></h3>
           </div>
 
-          <div class="col-4">
-            <h1 id="display-city">Liverpool</h1>
-          </div>
-
-          <div class="col-4" id="temp-units">
-            <h1>
-              <span id="temp-number">1</span>
-              <a href="#" id="celcius" class="active">°C</a>|
-              <a href="#" id="fahrenheit">°F</a>
-
-              <span id="condition">Cloud</span>
-
+          <div class="col-6" class=temp-display>
+            
+              <h1><span id="temp-number">1°</span>
+              <span id="temp-values"></span><a href="#" id="celcius" class="active">C</a>|
+              <a href="#" id="fahrenheit">F</a></span></h1>
+              <h3><span id="condition">Cloud</span>
               <img
                 src="https://openweathermap.org/img/wn/02n@2x.png"
                 id="current-weather"
-                alt=""
-              />
-            </h1>
+                alt=""/>
+                </h3>
           </div>
         </div>
+
         <div class="conditions-container">
           <div class="row">
             <div class="col-4">
-              <h3>
+              <h5>
                 Wind Speed <span id="wind-speed">10</span>mph
-                <i class="fas fa-wind"></i>
-              </h3>
-              <h3>
                 Humidity <span id="humidity">70</span>%
-                <i class="fas fa-tint"></i>
-              </h3>
+                </h5>
             </div>
 
             <div class="col-4">
-              <h3>Sunrise 6:38am<i class="fas fa-sun"></i></h3>
-              <h3>
-                Sunset 4:23pm<img
-                  src="https://openweathermap.org/img/wn/02n@2x.png"
-                  alt=""
-                />
-              </h3>
+              <h5>
+                Sunrise 6:38am
+                Sunset 4:23pm
+                </h5>
             </div>
 
             <div class="col-4">
-              <h3>
+              <h5>
                 Max Temp <span id="max-temp">1</span>°C
-                <i class="fas fa-temperature-high"></i>
-              </h3>
-              <h3>
                 Min Temp <span id="min-temp">-1</span>°C
-                <i class="fas fa-temperature-low"></i>
-              </h3>
+              </h5>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="forecast-container" id="forecast">
+        <div class="forecast-container" id="forecast">
     
-    </div>
+        </div>
     <small>
       <a href="https://github.com/kirstyaka/MyApp" target="_blank"
         >Open-source code</a

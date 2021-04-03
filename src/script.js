@@ -87,7 +87,7 @@ function displayWeather(response) {
 
   let temp = Math.round(response.data.main.temp);
   let tempElement = document.querySelector("#temp-number");
-  tempElement.innerHTML = `${temp}`
+  tempElement.innerHTML = `${temp}°`
 
   let currentWeather = response.data.weather[0].icon;
   let currentWeatherElement = document.querySelector("#current-weather");
@@ -99,11 +99,11 @@ function displayWeather(response) {
 
   let windSpeed = Math.round(response.data.wind.speed);
   windElement = document.querySelector("#wind-speed");
-  windElement.innerHTML = `${windSpeed}`
+  windElement.innerHTML = `: ${windSpeed}`
 
   let humidity = response.data.main.humidity;
   humidElement = document.querySelector("#humidity");
-  humidElement.innerHTML = `${humidity}`
+  humidElement.innerHTML = `${humidity}%`
 
   let minTemp = Math.round(response.data.main.temp_min);
   let minTempElement = document.querySelector("#min-temp");
