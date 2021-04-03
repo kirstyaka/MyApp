@@ -50,7 +50,7 @@ function displayWeather(response) {
 
   let currentWeather = response.data.weather[0].icon;
   let currentWeatherElement = document.querySelector("#current-weather");
-  currentWeatherElement.setAttribute("src", `http://openweathermap.org/img/wn/${currentWeather}@2x.png`);
+  currentWeatherElement.setAttribute("src", `https://openweathermap.org/img/wn/${currentWeather}@2x.png`);
 
   let conditions = response.data.weather[0].description;
   let conditionsElement = document.querySelector("#condition");
