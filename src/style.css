@@ -1,5 +1,6 @@
 body {
   font-family: "Play", sans-serif;
+  text-align: center;
 }
 
 h1,
@@ -47,8 +48,18 @@ form {
   border-radius: 8px;
 }
 
-.temp-display {
-  font-size: 80px;
+#city-input {
+  width: 100%;
+}
+
+#temp-values {
+  color: #35495e;
+  font-size: 24px;
+}
+
+#condition {
+  font-size: calc(1.3rem + 0.6vw);
+  color: #537d91;
 }
 
 .conditions-container {
@@ -84,4 +95,7 @@ form {
 
 .col-6 .active:hover {
   text-decoration: none;
+}
+#open-source {
+  margin-top: 30px;
 }
