@@ -103,7 +103,7 @@ function displayWeather(response) {
 
   let humidity = response.data.main.humidity;
   humidElement = document.querySelector("#humidity");
-  humidElement.innerHTML = `${humidity}%`
+  humidElement.innerHTML = `${humidity}`
 
   let minTemp = Math.round(response.data.main.temp_min);
   let minTempElement = document.querySelector("#min-temp");
